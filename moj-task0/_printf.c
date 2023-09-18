@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * _printf - a function that produces output according to a format.
  *
@@ -17,7 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (!form || (*form == '%' && *(form + 1) == '\0'))
+	if (!form || (*form == '%' && (*(form + 1) == '\0' || *(form + 1) == ' ')))
 		return (CLEAR_BUFFER);
 
 	while (*form)
@@ -34,6 +33,5 @@ int _printf(const char *format, ...)
 
 	fill_buffer(CLEAR_BUFFER);
 	va_end(args);
-	/*printf("chars = %d\n", printed_chars);*/
 	return (printed_chars);
 }

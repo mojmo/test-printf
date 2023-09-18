@@ -9,11 +9,12 @@ int main(void)
 {
 	int len;
 	int len2;
-	/*unsigned int ui;*/
+	unsigned int ui;
 	/*void *addr;*/
 
 	char character = 'A';
 	char string[] = "Hello, World!";
+	ui = (unsigned int)INT_MAX + 1024;
 
 	printf("Printing a character: %c\n", character);
 	printf("Printing a string: %s\n", string);
@@ -42,8 +43,19 @@ int main(void)
 	len = _printf("%b\n", 98);
 	_printf("Len:[%d]\n", len); /*1100010*/;
 
-	len = _printf("%b", -1);
-	_printf("\nLen:[%d]\n", len);
+	_printf("Unsigned:[%u]\n", ui);
+    	printf("Unsigned:[%u]\n", ui);
+
+	_printf("Unsigned:[%u]\n", -10);
+	printf("Unsigned:[%u]\n", -10);
+
+	_printf("%u\n", 'a');
+
+	_printf("Unsigned octal:[%o]\n", ui);
+    	printf("Unsigned octal:[%o]\n", ui);
+
+	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
 	_printf(NULL);
 	_printf("%s", NULL);

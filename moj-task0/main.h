@@ -23,14 +23,18 @@ typedef struct select_specifier
 	int (*f)(va_list);
 } spec_t;
 
-int fill_buffer(int c);
-int _put(char *str);
+int fill_buffer(int ch);
 
 int print_string(va_list args);
 int print_char(va_list args);
 int print_percentage(va_list args);
 int print_integer(va_list args);
 int print_bin(va_list args);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int print_hex(va_list args);
+int print_Hex(va_list args);
+int printBy_Base(unsigned int num, int base);
 
 int (*specifier(char *str))(va_list args);
 int get_func(char *str, va_list args);

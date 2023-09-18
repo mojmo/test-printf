@@ -1,46 +1,26 @@
 #include "main.h"
 
 /**
- * _put - prints a string.
- *
- * @str: the string.
- *
- * Return: length of the string.
- */
-
-int _put(char *str)
-{
-	char *start = str;
-
-	while (*str)
-	{
-		fill_buffer(*str);
-		str++;
-	}
-	return (str - start);
-}
-
-/**
  * fill_buffer - writes the character c to stdout
- * @c: The character to print
+ * @ch: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
 
-int fill_buffer(int c)
+int fill_buffer(int ch)
 {
-	static int i;
 	static char buffer[BUFFER_SIZE];
+	static int index;
 
-	if (c == -1 || (i >= BUFFER_SIZE))
+	if (ch == -1 || (index >= BUFFER_SIZE))
 	{
-		write(1, buffer, i);
-		i = 0;
+		write(1, buffer, index);
+		index = 0;
 	}
 
-	if (c != -1)
-		buffer[i++] = c;
+	if (ch != -1)
+		buffer[index++] = ch;
 
 	return (1);
 }

@@ -18,11 +18,15 @@ int (*specifier(char *str))(va_list args)
 		{"d", print_integer},
 		{"i", print_integer},
 		{"b", print_bin},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_Hex},
 		{NULL, NULL}
 	};
 	int i = 0;
 
-	while (i < 6)
+	while (i < 11)
 	{
 		if (str && *str == specs[i].spec[0])
 			return (specs[i].f);
@@ -47,5 +51,3 @@ int get_func(char *str, va_list args)
 
 	return (0);
 }
-
-
