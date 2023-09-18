@@ -14,26 +14,26 @@ int _put(char *str)
 
 	while (*str)
 	{
-		_putchar(*str);
+		fill_buffer(*str);
 		str++;
 	}
 	return (str - start);
 }
 
 /**
- * _putchar - writes the character c to stdout
+ * fill_buffer - writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
 
-int _putchar(int c)
+int fill_buffer(int c)
 {
 	static int i;
 	static char buffer[BUFFER_SIZE];
 
-	if ((c == -1) || (i >= BUFFER_SIZE))
+	if (c == -1 || (i >= BUFFER_SIZE))
 	{
 		write(1, buffer, i);
 		i = 0;

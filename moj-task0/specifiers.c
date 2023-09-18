@@ -15,11 +15,14 @@ int (*specifier(char *str))(va_list args)
 		{"s", print_string},
 		{"c", print_char},
 		{"%", print_percentage},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_bin},
 		{NULL, NULL}
 	};
 	int i = 0;
 
-	while (i < 3)
+	while (i < 6)
 	{
 		if (str && *str == specs[i].spec[0])
 			return (specs[i].f);
